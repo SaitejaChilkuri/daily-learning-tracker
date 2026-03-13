@@ -1,0 +1,36 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String         @id @default(cuid())
+  name      String?
+  email     String?        @unique
+  createdAt DateTime       @default(now())
+  sessions  StudySession[]
+}
+
+model StudySession {
+  id        String   @id @default(cuid())
+  date      String   // ISO yyyy-MM-dd
+  createdAt DateTime @default(now())
+  userId    String?  // Optional for now to support anonymous single-user mode
+  user      User?    @relation(fields: [userId], references: [id])
+
+  @@unique([date, userId]) // Prevent duplicate sessions on the same day for a user
+}
+
+model Achievement {
+  id         String   @id
+  name       String
+  unlocked   Boolean  @default(false)
+  unlockedAt DateTime @default(now())
+}
