@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Daily Learning Streak Tracker 🚀
 
 A gorgeous, **Full-Stack** Next.js 14 web application designed to help students track their daily study streaks. Master your habits by seeing your streak grow!
@@ -52,3 +53,6 @@ Vercel will quickly build your Tracker and provide you with a live, production-r
 ---
 
 *Keep learning, keep tracking, and never break the streak!* 📚🔥
+=======
+# daily-learning-tracker
+>>>>>>> ecca329807bd0d40e20171a116583987350f70f9
